@@ -1,0 +1,10 @@
+.title{
+    text-align: center;
+    background-color: greenyellow;
+    color: rgba(20, 20, 20, 0.521);
+    padding: 5px 10px;
+}
+.content {
+    display: flex;
+    gap: 50px;
+}

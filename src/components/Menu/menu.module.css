@@ -1,0 +1,23 @@
+.container {
+    flex: 1;  /* reduced from flex: 3 or whatever it was */
+    margin-left: 50px;
+    margin-top: 50px;  /* add space between CardList and Menu */
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: gray;
+}
+
+.title {
+    font-size: 28px;
+}
+@media screen and (max-width: 1024px) {
+    .container {
+        display: none;
+    }
+
+    
+}
+

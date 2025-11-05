@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+  color: var(--softTextColor);
+  gap: 100px;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logotext {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.desc {
+  font-weight: 300;
+  color: var(--softTextColor);
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+.linksWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.listTitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.list a {
+  color: var(--softTextColor);
+}
+
+.list a:hover {
+  color: var(--textColor);
+}
+@media screen and (max-width: 1024px) {
+  .linksWrapper {
+    gap: 50px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .linksWrapper {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 768px) {
+  .linksWrapper {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .linksWrapper {
+    flex-direction: column;
+    gap: 15px;
+    font-size: 12px;
+  }
+}
