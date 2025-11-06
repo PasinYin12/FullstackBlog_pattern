@@ -6,7 +6,7 @@ const Card = () => {
     <div className={styles.container}>
          
            <div className={styles.imgContainer}>
-             <img src="/p1.jpeg" alt="" style={{ width: 400, height: 275 }} className={styles.img}/>
+             <img src="/sunsetbalcony.jpg" alt="" style={{ width: 400, height: 275 }} className={styles.img}/>
            </div>
            <div className={styles.textContainer}>
              <div className={styles.detail}>
@@ -15,12 +15,11 @@ const Card = () => {
              </div>
          
            <Link href="/">
-            <h1 className={styles.title}>Visit Vernazza in La Spezia</h1>
+            <h1 className={styles.title}>Pearl Island, Discovering the Soul of Phu Quoc, Vietnam’s Hidden Gem</h1>
             </Link>
-            <p className={styles.desc}>Discover the stunning landscapes, 
-                rich history, and vibrant culture of Vernazza, a picturesque 
-                village in the Cinque Terre region and Try Sciacchetrà, 
-                a rare sweet wine made from sun-dried grapes grown on the cliffs.</p>
+            <p className={styles.desc}>Discover the stunning landscapes from peaceful mornings to 
+              golden evenings, explore the best spots to eat, relax, and watch the day fade into the horizon. 
+              Sunset Town offers one of the best sunset views in Phu Quoc...</p>
            <Link href="/" className={styles.link}>Read More</Link>
         </div>
     </div>

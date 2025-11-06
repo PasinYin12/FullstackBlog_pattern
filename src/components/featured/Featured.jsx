@@ -10,12 +10,16 @@ import styles from './featured.module.css'
       </h1>
       <div className={styles.post}>
         <div className={styles.imgContainer}>
-          <img src="/p1.jpeg" alt="Featured Post" className={styles.image} />
+          <img src="/sunsettown.jpg" alt="Featured Post" className={styles.image} />
         </div>
         <div className={styles.textContainer}>
-          <h1 className={styles.postTitle}>A blend of medieval history, fishing traditions Visit Vernazza in La Spezia, Italy</h1>
+          <h1 className={styles.postTitle}>Pearl Island, Discovering the Soul of Phu Quoc, Vietnam’s Hidden Gem</h1>
           <p className={styles.postDesc}>
-            Discover the stunning landscapes, rich history, and vibrant culture of Vernazza, a picturesque village in the Cinque Terre region and Try Sciacchetrà, a rare sweet wine made from sun-dried grapes grown on the cliffs. From its colorful cliffside houses to its charming harbor, Vernazza offers a perfect blend of relaxation and adventure for every traveler.
+            Discover the stunning landscapes from peaceful mornings to golden evenings, explore the best spots to eat, 
+            relax, and watch the day fade into the horizon. Sunset Town offers one of the best sunset views in Phu Quoc, 
+            complete with sea-view restaurants, the Kiss Bridge viewpoint, and the Italian-inspired Sun Premier Village. 
+            Whether you’re taking photos by the coastal arches or relaxing at a seaside café, this area perfectly captures 
+            the island’s charm and style.
           </p>
           <button className={styles.readMoreButton}>Read More</button>
         </div>

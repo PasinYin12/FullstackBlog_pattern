@@ -8,7 +8,7 @@ const MenuPost = ({ withImage, variant }) => {
         <div className={styles.items}>
             <Link href="/" className={styles.item}>
                 {withImage && <div className={styles.imgContainer}>
-                    <Image src="/travel.png" alt='' fill className={styles.image} />
+                    <Image src="/vinwonder.jpg" alt='' fill className={styles.image} />
                 </div>}
                 <div className={styles.textContainer}>
                     <span className={`${styles.category} ${styles.travel}`}>Travel</span>
@@ -21,7 +21,7 @@ const MenuPost = ({ withImage, variant }) => {
             </Link>
             <Link href="/" className={styles.item}>
                 {withImage && <div className={styles.imgContainer}>
-                    <Image src="/food.png" alt='' fill className={styles.image} />
+                    <Image src="/bunmi.jpg" alt='' fill className={styles.image} />
                 </div>}
                 <div className={styles.textContainer}>
                     <span className={`${styles.category} ${styles.food}`}>Food</span>
@@ -34,7 +34,7 @@ const MenuPost = ({ withImage, variant }) => {
             </Link>
             <Link href="/" className={styles.item}>
                 {withImage && <div className={styles.imgContainer}>
-                    <Image src="/culture.png" alt='' fill className={styles.image} />
+                    <Image src="/store.jpg" alt='' fill className={styles.image} />
                 </div>}
                 <div className={styles.textContainer}>
                     <span className={`${styles.category} ${styles.culture}`}>Culture</span>
@@ -47,7 +47,7 @@ const MenuPost = ({ withImage, variant }) => {
             </Link>
             <Link href="/" className={styles.item}>
                 {withImage && <div className={styles.imgContainer}>
-                    <Image src="/fashion.png" alt='' fill className={styles.image} />
+                    <Image src="/tigerdoll.jpg" alt='' fill className={styles.image} />
                 </div>}
                 <div className={styles.textContainer}>
                     <span className={`${styles.category} ${styles.fashion}`}>Fashion</span>
@@ -66,7 +66,7 @@ const MenuPost = ({ withImage, variant }) => {
             <div className={styles.item}>
                 <Link href="/" className={styles.item}>
                     <div className={styles.imgContainer}>
-                        <Image src="/coding.png" alt='' fill className={styles.image} />
+                        <Image src="/cablecar.jpg" alt='' fill className={styles.image} />
                     </div>
                     <div className={styles.textContainer}>
                         <span className={`${styles.category} ${styles.style}`}>Style</span>
@@ -81,7 +81,7 @@ const MenuPost = ({ withImage, variant }) => {
             <div className={styles.item}>
                 <Link href="/" className={styles.item}>
                     <div className={styles.imgContainer}>
-                        <Image src="/coding.png" alt='' fill className={styles.image} />
+                        <Image src="/cablecar.jpg" alt='' fill className={styles.image} />
                     </div>
                     <div className={styles.textContainer}>
                         <span className={`${styles.category} ${styles.style}`}>Style</span>
@@ -96,7 +96,7 @@ const MenuPost = ({ withImage, variant }) => {
             <div className={styles.item}>
                 <Link href="/" className={styles.item}>
                     <div className={styles.imgContainer}>
-                        <Image src="/coding.png" alt='' fill className={styles.image} />
+                        <Image src="/cablecar.jpg" alt='' fill className={styles.image} />
                     </div>
                     <div className={styles.textContainer}>
                         <span className={`${styles.category} ${styles.style}`}>Style</span>

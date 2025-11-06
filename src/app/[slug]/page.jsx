@@ -21,7 +21,7 @@ const SinglePage = () => {
           </div>
         </div>
         <div className={styles.imgContainer}>
-          <Image src="/p1.jpeg" alt="Main image" fill className={styles.image} />
+          <Image src="/sunsettown.jpg" alt="Main image" fill className={styles.image} />
         </div>
       </div>
 
