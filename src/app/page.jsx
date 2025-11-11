@@ -1,17 +1,22 @@
 import Link from "next/link";
+import React from "react";
 import Featured from "@/components/featured/Featured";
 import styles from "./homepage.module.css";
 import CategoryList from "@/components/categoryList/CategoryList";
 import CardList from "@/components/cardList/CardList";
 import Menu from "@/components/Menu/Menu";
 
-export default function Home() {
+export default function Home({searchParams}) {
+
+  const params = React.use(searchParams);
+  const currentPage = parseInt(params.page) || 1;
+
   return (
   <div className={styles.container}>
    <Featured/>
    <CategoryList/>
    <div className={styles.content}>
-    <CardList/>
+    <CardList page={currentPage}/>
 
     <Menu/>
     </div>

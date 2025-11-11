@@ -1,30 +1,123 @@
 "use client";
 import styles from "./writePage.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { app } from "@/utils/firebase";
 
-// Import CSS inside the dynamic import or in a client-only context
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 import "react-quill-new/dist/quill.bubble.css";
 
 
+const storage = getStorage(app);
 
 const WritePage = () => {
+
+  const { status } = useSession()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/login");
+    }
+  }, [status, router]);
+
   const [open, setOpen] = useState(false);
+  const [file, setFile] = useState(null);
+  const [media, setMedia] = useState("");
   const [value, setValue] = useState("");
+  const [title, setTitle] = useState(false);
+
+
+  useEffect(() => {
+    const upload = () => {
+      const name = new Date().getTime + file.name
+      const storageRef = ref(storage, name);
+
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+
+      uploadTask.on('state_changed',
+        (snapshot) => {
+
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log('Upload is ' + progress + '% done');
+          switch (snapshot.state) {
+            case 'paused':
+              console.log('Upload is paused');
+              break;
+            case 'running':
+              console.log('Upload is running');
+              break;
+          }
+        },
+        (error) => {
+
+        },
+        () => {
+
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setMedia(downloadURL);
+          });
+        }
+      );
+    };
+
+    file && upload();
+  }, [file])
+
+  if (status === "loading") {
+    return <div className={styles.loading}>Loading...</div>
+  }
+
+  const slugify = (str) => 
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/[\s_-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+  const handleSubmit = async () => {
+     const response = await fetch("/api/posts",{
+      method: "POST",
+      body:JSON.stringify({
+        title,
+        desc: value,
+        img: media,
+        slug: slugify(title),
+        catSlug: "travel",
+      }),
+     });
+     console.log(response)
+  };
+
   return (
     <div className={styles.container}>
-     <input type="text" placeholder="Title" className={styles.input}/>
-       <div className={styles.editor}>
-        <button className={styles.button} onClick={() =>setOpen(!open)}>
-          <Image src="/addButton.png" alt="add-button" width={16} height={16}/>
+      <input type="text" placeholder="Title" className={styles.input} onChange={e=>setTitle(e.target.value)}/>
+      {/*     <input type="text" placeholder="category" */}
+      <div className={styles.editor}>
+        <button className={styles.button} onClick={() => setOpen(!open)}>
+          <Image src="/addButton.png" alt="add-button" width={16} height={16} />
         </button>
         {open && (
           <div className={styles.add}>
+            <input
+              type="file"
+              id="image"
+              onChange={e => setFile(e.target.files[0])}
+              style={{ display: "none" }}
+            />
+
             <button className={styles.addButton}>
-              <Image src="/add-img.png" alt="add-img" width={16} height={16} />
+              <label htmlFor="image">
+                <Image src="/add-img.png" alt="add-img" width={16} height={16} />
+              </label>
             </button>
+
             <button className={styles.addButton}>
               <Image src="/add-ext.png" alt="add-file" width={16} height={16} />
             </button>
@@ -33,10 +126,10 @@ const WritePage = () => {
             </button>
           </div>
         )}
-        <ReactQuill className={styles.textArea} theme="bubble" value={value} 
-        onChange={setValue} placeholder="Tell your story..."/>
-       </div>
-      <button className={styles.publish}>Publish</button>
+        <ReactQuill className={styles.textArea} theme="bubble" value={value}
+          onChange={setValue} placeholder="Tell your story..." />
+      </div>
+      <button className={styles.publish} onClick={handleSubmit}>Publish</button>
     </div>
   )
 }

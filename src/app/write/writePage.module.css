@@ -13,6 +13,7 @@
   outline: none;
   background-color: transparent;
   width: 100%;
+  color: var(--textColor);
 }
 .input::placeholder {
   color: #b3b3b1;
