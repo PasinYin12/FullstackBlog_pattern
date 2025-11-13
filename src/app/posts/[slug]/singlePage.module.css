@@ -1,84 +1,288 @@
-.infoContainer{
-    display: flex;
-    align-items: center;
-    gap: 50px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
-.textContainer{
-    flex:1
+
+/* Header Section (Title + Author) */
+.header {
+  margin-bottom: 30px;
 }
+
 .title {
-  font-size: 64px;
-  margin-bottom: 50px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: var(--textColor);
 }
+
 .user {
   display: flex;
   align-items: center;
-  position: relative;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--softTextColor);
+  margin-bottom: 20px; /* ✅ Added spacing before main image */
 }
-.avatar {
-  border-radius: 50%;
-  object-fit: cover;
-}
+
 .userImgContainer {
   position: relative;
   width: 50px;
   height: 50px;
+  flex-shrink: 0;
 }
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .userTextContainer {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  color: var(--softTextColor);
-  padding-left: 10px;
+  gap: 4px;
 }
+
 .username {
-  font-style: 20px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--textColor);
 }
 
-.imgContainer {
-  flex: 1;
-  height: 350px;
-  position: relative;
+.date {
+  font-size: 14px;
+  color: var(--softTextColor);
 }
 
-.image {
+/* ✅ Main Image Section (First uploaded image as thumbnail) */
+.mainImageContainer {
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--softBg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* ✅ Added subtle shadow */
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  display: block;
   object-fit: cover;
+  aspect-ratio: 16 / 9;
 }
+
+/* Content Section */
 .content {
   display: flex;
   gap: 50px;
+  margin-top: 40px;
 }
+
 .post {
   flex: 5;
-  margin-top: 60px;
+  min-width: 0; /* ✅ Prevent flex item overflow */
 }
-.description p{
-  font-size: 20px;
-  font-weight: 300;
+
+.description {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--textColor);
+  word-wrap: break-word; /* ✅ Handle long words */
+}
+
+.description p {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.description h1,
+.description h2,
+.description h3 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  color: var(--textColor); /* ✅ Ensure headings have proper color */
+}
+
+.description h1 {
+  font-size: 32px;
+}
+
+.description h2 {
+  font-size: 28px;
+}
+
+.description h3 {
+  font-size: 24px;
+}
+
+/* ✅ Images within content (2nd, 3rd, 4th+ images) */
+.description img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 24px 0;
+  display: block; /* ✅ Remove inline spacing */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* ✅ Added subtle shadow */
+}
+
+.description video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 24px 0;
+  display: block; /* ✅ Remove inline spacing */
+}
+
+.description blockquote {
+  border-left: 4px solid var(--softTextColor);
+  padding-left: 20px;
+  margin: 24px 0;
+  font-style: italic;
+  color: var(--softTextColor);
+}
+
+.description ul,
+.description ol {
+  padding-left: 24px;
   margin-bottom: 20px;
 }
 
+.description li {
+  margin-bottom: 8px;
+  line-height: 1.6; /* ✅ Improved list readability */
+}
+
+.description a {
+  color: #4169e1;
+  text-decoration: underline;
+  transition: color 0.2s ease; /* ✅ Smooth color transition */
+}
+
+.description a:hover {
+  color: #2a4ab8;
+}
+
+/* ✅ Code blocks styling */
+.description pre {
+  background-color: var(--softBg);
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 24px 0;
+}
+
+.description code {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.comments {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 2px solid var(--softBg);
+}
+
+/* Responsive Design */
 @media screen and (max-width: 1536px) {
-  .title{
-    font-size: 54px;
+  .title {
+    font-size: 44px;
   }
 }
+
 @media screen and (max-width: 1280px) {
-  .title{
-    font-size: 48px;
+  .title {
+    font-size: 40px;
+  }
+  
+  .content {
+    gap: 30px;
   }
 }
+
 @media screen and (max-width: 1024px) {
-  .imgContainer{
-    display: none;
-  }
-}
-@media screen and (max-width: 640px) {
-  .title{
+  .title {
     font-size: 36px;
   }
-  .description p{
-    font-size: 18px;
+  
+  .content {
+    flex-direction: column;
+    gap: 20px; /* ✅ Reduced gap for mobile */
+  }
+  
+  .mainImage {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+  
+  .title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .mainImageContainer {
+    margin: 20px -16px; /* ✅ Full bleed on mobile */
+    border-radius: 0;
+  }
+  
+  .description p {
+    font-size: 16px;
+  }
+  
+  .userImgContainer {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .username {
+    font-size: 14px;
+  }
+  
+  .date {
+    font-size: 12px;
+  }
+  
+  .content {
+    margin-top: 30px; /* ✅ Reduced top margin */
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .title {
+    font-size: 28px;
+  }
+  
+  .description p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .description h1 {
+    font-size: 26px;
+  }
+  
+  .description h2 {
+    font-size: 22px;
+  }
+  
+  .description h3 {
+    font-size: 20px;
+  }
+  
+  .mainImageContainer {
+    margin: 20px -16px; /* ✅ Maintain full bleed */
+  }
+  
+  .description img {
+    margin: 16px 0; /* ✅ Reduced margin for mobile */
   }
 }

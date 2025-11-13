@@ -1,4 +1,4 @@
-import { getServerSession } from "next-auth"; 
+import { getServerSession } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import { PrismaAdapter } from "@auth/prisma-adapter";
@@ -17,10 +17,6 @@ export const authOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  session: {
-    strategy: "jwt", 
-  },
-  debug: process.env.NODE_ENV === "development", 
 };
 
-export const getAuthSession = () => getServerSession(authOptions); 
+export const getAuthSession = () => getServerSession(authOptions);
